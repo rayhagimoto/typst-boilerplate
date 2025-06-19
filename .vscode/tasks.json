@@ -13,7 +13,7 @@
               "reveal": "never",
               "panel": "new"
           },
-          "problemMatcher": [], // Or you could add a problem matcher for Typst errors
+          "problemMatcher": [],
           "detail": "Runs the Typst compilation script."
       }
   ]
