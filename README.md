@@ -35,6 +35,7 @@ The build script sets `$XDG_DATA_HOME=~/.local/share`, as Typst looks for packag
 
 ```typst
 #import "@local/templates:1.0.0" : *
+#show: template
 ```
 
 ## Setting Up the Build Environment for My Template
