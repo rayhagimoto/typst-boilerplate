@@ -7,7 +7,7 @@ At the time of writing I'm using v0.2.18.
 
 # Quick start
 
-I keep my typst notes in `$HOME/typst` so I clone this repo using `git clone https://github.com/rayhagimoto/typst-project $HOME/typst/$PROJECT_NAME`.
+I keep my typst notes in `$HOME/typst` so I clone this repo using `git clone https://github.com/rayhagimoto/typst-boilerplate $HOME/typst/$PROJECT_NAME`.
 
 The build script in [`scripts/build.sh`](scripts/build.sh) assumes that `$PROJECT_NAME` is of the form `$TOPIC-notes`. Then it compiles `src/main.typ` to `$TOPIC.pdf`. For example, if I had `PROJECT_NAME=stochastic-calculus-notes` then the output filename would be `stochastic-calculus-notes.pdf`, in the project root.
 
