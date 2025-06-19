@@ -1,19 +1,22 @@
-# Typst project template
+# Typst Project Template
 
-This directory defines a project structure for typst notes, including vscode settings.
+This directory outlines a project structure for Typst notes, including VSCode settings.
 
-The vscode settings are irrelevant if you're not using vscode. However, if you're using vscode the [.vscode/settings.json](.vscode/settings.json) assumes [Trigger Task on Save](https://open-vsx.org/extension/Gruntfuggly/triggertaskonsave) by [Gruntfuggly](https://open-vsx.org/namespace/Gruntfuggly) is installed. 
-At the time of writing I'm using v0.2.18.
+If you're not using VSCode, the settings are irrelevant. However, if you are, the [.vscode/settings.json](.vscode/settings.json) file assumes that the [Trigger Task on Save](https://open-vsx.org/extension/Gruntfuggly/triggertaskonsave) extension by Gruntfuggly (v0.2.18 at the time of writing) is installed.
 
-# Quick start
+## Quick Start
 
-I keep my typst notes in `$HOME/typst` so I clone this repo using `git clone https://github.com/rayhagimoto/typst-boilerplate $HOME/typst/$PROJECT_NAME`.
+I organize my Typst notes in `$HOME/typst`. To clone this repository, use the following command:
 
-The build script in [`scripts/build.sh`](scripts/build.sh) assumes that `$PROJECT_NAME` is of the form `$TOPIC-notes`. Then it compiles `src/main.typ` to `$TOPIC.pdf`. For example, if I had `PROJECT_NAME=stochastic-calculus-notes` then the output filename would be `stochastic-calculus-notes.pdf`, in the project root.
+```bash
+git clone https://github.com/rayhagimoto/typst-boilerplate $HOME/typst/$PROJECT_NAME
+```
 
-# Template
+The build script located at [`scripts/build.sh`](scripts/build.sh) expects `$PROJECT_NAME` to follow the format `$TOPIC-notes`. It then compiles `src/main.typ` into `$TOPIC.pdf`. For instance, if `PROJECT_NAME` is `stochastic-calculus-notes`, the output filename will be `stochastic-calculus-notes.pdf` in the project root.
 
-I use a [template](https://github.com/rayhagimoto/typst-template), which I  installed by cloning the repo to `$HOME/.local/share/typst/packages/local/templates/1.0.0` 
+## Template Usage
+
+I utilize a [template](https://github.com/rayhagimoto/typst-template), which I've installed by cloning the repository to `$HOME/.local/share/typst/packages/local/templates/1.0.0`. The directory structure is as follows:
 
 ```
 ~/.local/share/typst
@@ -28,30 +31,42 @@ I use a [template](https://github.com/rayhagimoto/typst-template), which I  inst
                 └── utils.typ
 ```
 
-The build script sets `$XDG_DATA_HOME=~/.local/share` since typst looks at `$XDG_DATA_HOME/typst/packages` for packages. 
-They are then imported using `#import "@local/templates:1.0.0" : *`.
+The build script sets `$XDG_DATA_HOME=~/.local/share`, as Typst looks for packages in `$XDG_DATA_HOME/typst/packages`. These packages are then imported using:
 
-# Setting up the build environment for using my template
-(Instructions accurate at time of writing June 19 2025)
-
-Instructions on how to set up typst with my template on WSL2 Ubuntu-24.04.1 LTS.
-
-Get the typst compiler from https://github.com/typst/typst. I followed the instructions there and ran `snap install typst` and got typst 0.13.1.
-
-I install my template by doing
-
+```typst
+#import "@local/templates:1.0.0" : *
 ```
-# Clone the repo into the directory where typst compiler can find it
-git clone https://github.com/rayhagimoto/typst-template ~/.local/share/typst/packages/local/templates/1.0.0
 
-# Install msft fonts (I'm only doing this for Arial, I should change to some other sans serif font...)
-sudo apt-get update
-sudo apt-get install msttcorefonts
+## Setting Up the Build Environment for My Template
 
-# Install lmodern font
-wget https://www.gust.org.pl/projects/e-foundry/latin-modern/download/lm2.004otf.zip && \
-    mkdir -p /usr/share/fonts/lmodern && \
-    unzip lm2.004otf.zip -d /usr/share/fonts/lmodern && \
-    rm lm2.004otf.zip && \
-    fc-cache -fv
-```
+*(Instructions are accurate as of June 19, 2025)*
+
+Here's how to set up Typst with my template on WSL2 Ubuntu-24.04.1 LTS:
+
+1.  **Get the Typst Compiler:**
+    Obtain the Typst compiler from [https://github.com/typst/typst](https://github.com/typst/typst). I followed the instructions there and installed it using `snap install typst`, which provided Typst 0.13.1.
+
+2.  **Install My Template:**
+    Clone the template repository into the directory where the Typst compiler can find it:
+
+    ```bash
+    git clone https://github.com/rayhagimoto/typst-template ~/.local/share/typst/packages/local/templates/1.0.0
+    ```
+
+3.  **Install Microsoft Fonts (Optional):**
+    I primarily install these for Arial; consider an alternative sans-serif font if desired.
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install msttcorefonts
+    ```
+
+4.  **Install Latin Modern Font:**
+
+    ```bash
+    wget https://www.gust.org.pl/projects/e-foundry/latin-modern/download/lm2.004otf.zip && \
+        mkdir -p /usr/share/fonts/lmodern && \
+        unzip lm2.004otf.zip -d /usr/share/fonts/lmodern && \
+        rm lm2.004otf.zip && \
+        fc-cache -fv
+    ```
